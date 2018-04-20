@@ -85,6 +85,7 @@ bot.on("message", async message => {
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
+  if (!prefixes[message.guild.id].prefix) prefixes[message.guild.id].prefix = "gb!"
   if(commandfile) commandfile.run(bot,message,args);
 
 });
