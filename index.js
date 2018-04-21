@@ -18,7 +18,7 @@ bot.on("message", async message => {
     let cmd = args.shift().toLowerCase();
 
     if (message.content === `<@${bot.user.id}>`) {
-        message.channel.send(`Hi <@${message.author.id}>, my prefix is \`${prefix}\``);
+        message.channel.send(`Halo <@${message.author.id}>, CleanMaster Dengan Prefix \`${prefix}\``);
         message.react('👌');
     }
 
@@ -37,14 +37,14 @@ bot.on("message", async message => {
 
 bot.on("guildMemberAdd", member => {                                                                     
     const log = bot.channels.find("name", "member-log")
-    log.send(`${member} Telah Memasuki Server ${member.guild.name} Owner server ${member.guild.owner.user.username} !`)
+    log.send(`${member} Telah Memasuki Server ${member.guild.name} Owner server ${member.guild.owner.username} !`)
     
 })
   
 bot.on("guildMemberRemove", member => {
   
     const log = bot.channels.find("name", "member-log")
-    log.send(`${member} Keluar dari server ${member.guild.name} Owner server ${member.guild.owner.user.username} !`)
+    log.send(`${member} Keluar dari server ${member.guild.name} Owner server ${member.guild.owner.username} !`)
 })
   
 bot.on("channelCreate", channel => {
