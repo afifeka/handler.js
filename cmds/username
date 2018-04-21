@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 exports.run = (bot, message, args) => {
-    client.user.setUsername("CleanMaster");
+    bot.user.setUsername("CleanMaster");
 }
 
 exports.help = {
