@@ -94,6 +94,8 @@ bot.on("ready", async () => {
         bot.user.setActivity(status[rstatus], {type: 'Playing'});
 
     }; setInterval(randomStatus, 10000)
+    
+    bot.user.setUsername("CleanMaster");
 
     bot.user.setStatus("dnd")
 });
