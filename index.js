@@ -89,7 +89,7 @@ bot.on("ready", async () => {
     console.log(`${bot.user.tag} is ready!`);
 
     function randomStatus() {
-        let status = [`Normal Mode!`, `i!invite`, `i!help`,`Remmove Music Commands!`, `${bot.guilds.size} Servers In The Your Party!`]
+        let status = [`Vote Now!`, `i!invite`, `i!help`,`Big Updates!`, `On ${bot.guilds.size} Servers!`]
         let rstatus = Math.floor(Math.random() * status.length);
         bot.user.setActivity(status[rstatus], {type: 'Playing'});
 
@@ -97,7 +97,7 @@ bot.on("ready", async () => {
     
     bot.user.setUsername("CleanMaster");
 
-    bot.user.setStatus("dnd")
+    bot.user.setStatus("idle")
 });
 
 bot.login(process.env.BOT_TOKEN);
