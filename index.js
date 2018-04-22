@@ -39,7 +39,7 @@ bot.on("guildMemberAdd", member => {
 	let autorole = JSON.parse(fs.readFileSync("./autorole.json", "utf8"));
 	if (!autorole[member.guild.id]) {
 		autorole[member.guild.id] = {
-			autorole: config.autorole
+			autorole: cfg.autorole
 		};
 	}
 	var role = autorole[member.guild.id].role;
