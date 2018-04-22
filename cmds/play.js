@@ -8,6 +8,7 @@ const YouTube = require("simple-youtube-api");
 const youtube = new YouTube(key);
 const opus = require("opusscript");
 const gyp = require("node-gyp");
+const queue = new Map();
 
 exports.run = async(bot, message, args, color, queue) => {
   const args1 = message.content.split(' ');
