@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!kUser) return message.channel.send(":warning: **| Tidak player yang ingin anda banned!**");
+    if(!kUser) return message.channel.send(":warning: **| Tidak player yang ingin anda kick!**");
     let kReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Anda tidak ada permission untuk melakukan command ini!");
     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send(":negative_squared_cross_mark: **| Tidak bisa kick player tersebut!**");
