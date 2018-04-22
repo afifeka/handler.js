@@ -35,55 +35,18 @@ bot.on("message", async message => {
     }
 });
 
-bot.on("guildMemberAdd", member => {                                                                     
-    const log = bot.channels.find("name", "member-log")
-    log.send(`${member} Telah Memasuki Server ${member.guild.name}!!`)
-    
-})
-  
-bot.on("guildMemberRemove", member => {
-  
-    const log = bot.channels.find("name", "member-log")
-    log.send(`${member} Keluar dari server ${member.guild.name}!`)
-})
-  
-bot.on("channelCreate", channel => {
-  
-  if (channel.type == 'dm') return;
-  const log = bot.channels.find("name", "admin-log")
-  var embed = new Discord.RichEmbed()
-  .setTitle("Membuat Channel!")
-  .setColor("RANDOM")
-  .setTimestamp()
-  .addField(`Nama channel : ${channel.name}`, `Channel dibuat diserver ${channel.guild.name}`)
-  log.send({ embed: embed })
+bot.on("guildMemberAdd", member => {
+	let autorole = JSON.parse(fs.readFileSync("./autorole.json", "utf8"));
+	if (!autorole[member.guild.id]) {
+		autorole[member.guild.id] = {
+			autorole: config.autorole
+		};
+	}
+	var role = autorole[member.guild.id].role;
+	if (!role) return;
+	member.addRole(role);
 });
-  
-bot.on("channelDelete", channel => {
-  const log = bot.channels.find("name", "admin-log")
-  var embed = new Discord.RichEmbed()
-  .setTitle("Menghapus Channel!")
-  .setColor("RANDOM")
-  .setTimestamp()
-  .setThumbnail(`${channel.guild.iconURL}`)
-  .addField(`Nama channel : ${channel.name}`, `Channel dihapus diserver ${channel.guild.name}`)
-  log.send({ embed: embed })
-  });
-  
-bot.on("guildCreate", guild => {
-    const guildOwner = guild.owner.user.tag;
-    
-    const log = bot.channels.find("name", "server-log")
-    var embed2 = new Discord.RichEmbed()
-    .setTitle("Memasuki Server!")
-    .setColor("RANDOM")
-    .setTimestamp()
-    .setTimeout(process.exit, 1000 * 60 * 60 * 168)
-    .setThumbnail("http://freevector.co/wp-content/uploads/2009/03/40358-add-people-interface-symbol-of-black-person-close-up-with-plus-sign-in-small-circle.png")
-    .addField(`Saya telah memasuki server ${guild.name} Owned oleh ${guildOwner}`, `Sekarang jumlah server ${bot.guilds.size}, Dengan member ${bot.users.size} total!`)
-    log.send({ embed: embed2 })
-});
-  
+
 
 bot.on("ready", async () => {
     console.log(`${bot.user.tag} is ready!`);
