@@ -52,7 +52,7 @@ bot.on("ready", async () => {
     console.log(`${bot.user.tag} is ready!`);
 
     function randomStatus() {
-        let status = [`Vote Now!`, `i!invite`, `i!help`,`Big Updates!`, `On ${bot.guilds.size} Servers!`]
+        let status = [`Vote Now!`, `cm!invite`, `cm!help`,`Add Costum Autorole!`, `On ${bot.guilds.size} Servers!`]
         let rstatus = Math.floor(Math.random() * status.length);
         bot.user.setActivity(status[rstatus], {type: 'Playing'});
 
