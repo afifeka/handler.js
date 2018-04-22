@@ -1,7 +1,9 @@
 const Discord = require("discord.js");
-const ms = require("ms");
 
 exports.run = (bot, message, args) => {
+    
+    var lat_ms = (m.createdTimestamp - message.createdTimestamp);
+	var api_ms = (Math.round(bot.ping));
 
     let embed = new Discord.RichEmbed()
     .addField("Latency", lat_ms + "ms", true)
