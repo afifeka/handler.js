@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const fs = require("fs");
+const _fs = require("fs");
 const package = JSON.parse(_fs.readFileSync('../package.json', 'utf-8'));
 const config = JSON.parse(_fs.readFileSync('../botconfig.json', 'utf-8'));
 
