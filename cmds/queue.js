@@ -8,6 +8,7 @@ const moment = require('moment');
 const yt = require('ytdl-core');
 const YouTube = require('simple-youtube-api');
 const youtube = new YouTube(key);
+const queue = new Map();
 
 exports.run = async(bot, message, args, queue) => {
      const args1 = message.content.split(' ');
