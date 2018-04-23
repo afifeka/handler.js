@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
   .addField(":frame_photo: Photo Command", "| `g!dog` | `g!cat` |")
   .setFooter("Beta v0.2 | Discord.js");
   message.author.send(helpembed);
-  message.react("☑");
+  message.channel.send(`:mailbox_with_mail: | Plase Check Your DM's <@${message.author.id}>!`);
   return;
 
 }
