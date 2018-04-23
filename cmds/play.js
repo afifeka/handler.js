@@ -1,17 +1,17 @@
-const cfg = require("../botconfig.json");
+const botsettings = require("../botconfig.json");
 const Discord = require('discord.js');
-const key = process.env.YT_API;
+const key = process.env.YT_API
 const fs = require("fs");
+const colors = require("colors");
 const moment = require("moment");
 const yt = require("ytdl-core");
 const YouTube = require("simple-youtube-api");
 const youtube = new YouTube(key);
-const opus = require("opusscript");
+const opus = require("node-opus");
 const gyp = require("node-gyp");
-const queue = new Map();
 
-exports.run = async(bot, message, args, color, queue) => {
-  const args1 = message.content.split(' ');
+exports.run = async(bot, message, args, queue) => {
+    const args1 = message.content.split(' ');
   const searchString = args1.slice(1).join(' ');
   const url = args1[1] ? args1[1].replace(/<(.+)>/g, '$1') : '';
   const serverQueue = queue.get(message.guild.id);
@@ -43,14 +43,14 @@ const voiceChannel = message.member.voiceChannel;
           let index = 0;
           
           
-          const embed = new Discord.RichEmbed()
+          const Embed2 = new Discord.RichEmbed()
           .setTitle(":musical_note: Song Selection :musical_note:")
           .setDescription(videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n'))
-          .setColor(color)
+          .setColor("#503d82")
           .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
           
           
-          let msgtoDelete = await message.channel.send({embed: embed});
+          let msgtoDelete = await message.channel.send({embed: Embed2});
           // eslint-disable-next-line max-depth
           try {
             var response = await message.channel.awaitMessages(message2 => message2.content > 0 && message2.content < 11, {
@@ -63,7 +63,7 @@ const voiceChannel = message.member.voiceChannel;
             console.error(err);
             const noPick = new Discord.RichEmbed()
             .setDescription("No or invalid value entered, cancelling video selection.")
-            .setColor(color)
+            .setColor("#503d82")
             message.channel.send({embed: noPick});
             msgtoDelete.delete()
             return;
@@ -158,64 +158,43 @@ const dispatcher = serverQueue.connection.playStream(yt(song.url))
   if(song.durationh !== 0) {
     if(secondslength == 1 || secondslength == 0) {
       if(mlength !== 1 || mlength !== 0) {
-        const embed2 = new Discord.RichEmbed()
-        .setDescription(`🎶 Now playing: **${song.title}** (${song.durationh}:${song.durationm}:0${durations})`)
-        .setColor(color);
-
-      return serverQueue.textChannel.send(embed2);
+      return serverQueue.textChannel.send(`🎶 Now playing: **${song.title}** (${song.durationh}:${song.durationm}:0${durations})`);
     }}};
     if(song.durationh !== 0) {
       if(mlength == 1 || mlength == 0) {
         if(secondslength !== 1 || secondslength !== 0) {
-          const embed3 = new Discord.RichEmbed()
-        .setDescription(`🎶 Now playing: **${song.title}** (${song.durationh}:0${song.durationm}:${durations})`)
-        .setColor(color);
-
-        return serverQueue.textChannel.send(embed3);
+        return serverQueue.textChannel.send(`🎶 Now playing: **${song.title}** (${song.durationh}:0${song.durationm}:${durations})`);
     }}}
     if(song.durationh !== 0) {
       if(mlength !== 1 || mlength !== 0) {
         if(secondslength !== 1 || secondslength !== 0) {
-          const embed4 = new Discord.RichEmbed()
-          .setDescription(`🎶 Now playing: **${song.title}** (${song.durationh}:${song.durationm}:${durations})`)
-          .setColor(color);
-
-        return serverQueue.textChannel.send(embed4);
+        return serverQueue.textChannel.send(`🎶 Now playing: **${song.title}** (${song.durationh}:${song.durationm}:${durations})`);
     }}}
     if(song.durationh == 0 && song.durationm !== 0) {
       if(secondslength == 1 || secondslength == 0) {
-          const embed5 = new Discord.RichEmbed()
-          .setDescription(`🎶 Now playing: **${song.title}** (${song.durationm}:0${durations})`)
-          .setColor(color);
-
-        return serverQueue.textChannel.send(embed5);
+        return serverQueue.textChannel.send(`🎶 Now playing: **${song.title}** (${song.durationm}:0${durations})`);
     }}
     if(song.durationh == 0 && song.durationm !== 0) {
       if(secondslength !== 1 || secondslength !== 0) {
-        const embed6 = new Discord.RichEmbed()
-        .setDescription(`🎶 Now playing: **${song.title}** (${song.durationm}:${durations})`)
-        .setColor(color);
-
-        return serverQueue.textChannel.send(embed6);
+        return serverQueue.textChannel.send(`🎶 Now playing: **${song.title}** (${song.durationm}:${durations})`);
     }}
     if(song.durationh == 0 && song.durationm == 0 && song.durations !== 0) {
-        const embed7 = new Discord.RichEmbed()
-        .setDescription(`🎶 Now playing: **${song.title}** (${durations} Seconds)`)
-        .setColor(color);
-
-      return serverQueue.textChannel.send(embed7);
+      return serverQueue.textChannel.send(`🎶 Now playing: **${song.title}** (${durations} Seconds)`);
     } else {
-        const embed8 = new Discord.RichEmbed()
-        .setDescription(`🎶 Now playing: **${song.title}**`)
-        .setColor(color);
-
-      return serverQueue.textChannel.send(embed8);
+      return serverQueue.textChannel.send(`🎶 Now playing: **${song.title}**`);
     }
 }
+    
+    
+    
+    
+    
 } // I had this setup somewhere else so if u see me paste something in that's why
+
 
 exports.help = {
     name: "play",
     description: "Sings music to you",
-    usage: "ms!play [song-name] || [url] || [playlist-url]"
+    usage: "pr!play [song-name] || pr!play [url] || pr!play [playlist-url]",
+    note: "Can sing horribly sometimes"
 }
