@@ -1,15 +1,18 @@
-const cfg = require("../botconfig.json");
+const botsettings = require("../botconfig.json");
+const prefixes = require("../prefixes.json")
 const Discord = require("discord.js");
-const key = process.env.YT_API;
+const key = process.env.YT_API
 const fs = require("fs"); 
+const colors = require('colors');
 const moment = require('moment');
 const yt = require('ytdl-core');
 const YouTube = require('simple-youtube-api');
 const youtube = new YouTube(key);
-const opus = require("opusscript");
+const opus = require("node-opus");
 const gyp = require("node-gyp");
 
-exports.run = async(bot, message, args, color,  queue) => { 
+exports.run = async(bot, message, args, queue) => {
+  const prefix = prefixes[message.guild.id].prefix;  
     const args1 = message.content.split(' ');
   const searchString = args1.slice(1).join(' ');
   const url = args1[1] ? args1[1].replace(/<(.+)>/g, '$1') : '';
