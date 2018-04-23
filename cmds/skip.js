@@ -1,4 +1,4 @@
-const botsettings = require("../botsettings.json");
+const botsettings = require("../botconfig.json");
 const prefixes = require("../prefixes.json");
 const Discord = require("discord.js");
 const key = process.env.YT_API
