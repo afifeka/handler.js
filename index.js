@@ -2,6 +2,18 @@ const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: false});
 const cfg = require("./botconfig.json");
 const fs = require("fs");
+const key = process.env.YT_API;
+const fs = require("fs");
+const colors = require('colors');
+const moment = require('moment');
+const yt = require("ytdl-core");
+const Youtube = require("simple-youtube-api");
+const youtube = new Youtube(key);
+const queue = new Map();
+const snekfetch = require("snekfetch");
+const prefixes = require("./prefixes.json")
+const db = require('quick.db');
+const figlet = require('figlet');
 
 bot.on("message", async message => {
 
