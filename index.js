@@ -3,7 +3,6 @@ const bot = new Discord.Client({disableEveryone: false});
 const cfg = require("./botconfig.json");
 const fs = require("fs");
 const key = process.env.YT_API;
-const fs = require("fs");
 const colors = require('colors');
 const moment = require('moment');
 const yt = require("ytdl-core");
