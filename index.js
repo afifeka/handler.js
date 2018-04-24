@@ -54,9 +54,86 @@ bot.on("guildMemberAdd", member => {
 		};
 	}
 	var role = autorole[member.guild.id].role;
-	if (!role) return;
+	if (!role)
 	member.addRole(role);
+	
+        const log = bot.channels.get("437894427600486403")
+
+        let embed = new Discord.RichEmbed()
+        .setTitle("MEMBER JOINED")
+        .addField("Member Name", `${member.user.username}`)
+    	.addField("Note", "Plase Read Rules And Have Fun The Server!")
+    	.setTimestamp()
+    	.addField("Now Total Members", `${bot.users.size}`)
+    	.setColor("#fa0606")
+    	.setFooter(`MemberAdd AutoCmd On ${member.guild.name}`)
+    	return log.send({ embed: embed })
 });
+
+bot.on("guildMemberRemove", member => {
+
+    const log = bot.channels.get("437894427600486403")
+
+    let embed = new Discord.RichEmbed()
+    .setTitle("MEMBER LEAVE")
+    .addField("Member Name", `${member.user.username}`)
+    .addField("Note", "Plase Reconnect!")
+    .setTimestamp()
+    .addField("Now Total Members", `${bot.users.size}`)
+    .setColor("#0afa66")
+    .setFooter(`MemberRemove AutoCmd On ${member.guild.name}`)
+    log.send({ embed: embed })
+});
+
+bot.on("guildCreate", guild => {
+    const log = bot.channels.get("437894427600486403")
+    
+    let embed = new Discord.RichEmbed()
+    .setTitle("Remove Guilds")
+    .addField("Guild Name", `${guild.name}`)
+    .addField("Owner Server", `${guild.owner.user.username}`)
+    .addField("Now Total Servers", `${bot.guilds.size}`)
+    .setFooter("New Public Cmd")
+    log.send({ embed: embed })
+});
+  
+bot.on("guildDelete", guild => {
+
+    const log = bot.channels.get("437894427600486403")
+    
+    let embed = new Discord.RichEmbed()
+    .setTitle("Remove Guilds")
+    .addField("Guild Name", `${guild.name}`)
+    .addField("Owner Server", `${guild.owner.user.username}`)
+    .setFooter("New Public Cmd")
+    .addField("Now Total Servers", `${bot.guilds.size}`)
+    log.send({ embed: embed })
+});
+
+bot.on("channelCreate", channel => {
+	
+	const log = bot.channels.get("437894427600486403")
+	var embed = new Discord.RichEmbed()
+	.setTitle("Channel Created!")
+	.setColor("#0afa66")
+    .setTimestamp()
+    .addField("Now Total Channels", `${bot.channels.size}`)
+	.addField(`Channel Name: ${channel.name}`, `Has Created On Server ${channel.guild.name}`)
+	log.send({ embed: embed })
+});
+
+bot.on("channelDelete", channel => {
+	const log = bot.channels.get("437894427600486403")
+	var embed = new Discord.RichEmbed()
+	.setTitle("Channel Deleted!")
+	.setColor("#0afa66")
+    .setTimestamp()
+    .addField("Now Total Channels", `${bot.channels.size}`)
+	.setThumbnail(`${channel.guild.iconURL}`)
+	.addField(`Channel Name : ${channel.name}`, `Has Deleted On Server ${channel.guild.name}`)
+	log.send({ embed: embed })
+});
+
 
 
 bot.on("ready", async () => {
