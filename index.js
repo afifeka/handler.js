@@ -110,30 +110,6 @@ bot.on("guildDelete", guild => {
     log.send({ embed: embed })
 });
 
-bot.on("channelCreate", channel => {
-	
-	const log = bot.channels.get("437894427600486403")
-	var embed = new Discord.RichEmbed()
-	.setTitle("Channel Created!")
-	.setColor("#0afa66")
-    .setTimestamp()
-    .addField("Now Total Channels", `${bot.channels.size}`)
-	.addField(`Channel Name: ${channel.name}`, `Has Created On Server ${channel.guild.name}`)
-	log.send({ embed: embed })
-});
-
-bot.on("channelDelete", channel => {
-	const log = bot.channels.get("437894427600486403")
-	var embed = new Discord.RichEmbed()
-	.setTitle("Channel Deleted!")
-	.setColor("#0afa66")
-    .setTimestamp()
-    .addField("Now Total Channels", `${bot.channels.size}`)
-	.setThumbnail(`${channel.guild.iconURL}`)
-	.addField(`Channel Name : ${channel.name}`, `Has Deleted On Server ${channel.guild.name}`)
-	log.send({ embed: embed })
-});
-
 
 
 bot.on("ready", async () => {
