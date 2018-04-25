@@ -6,8 +6,8 @@ exports.run = (bot, message, args) => {
         return message.reply("Plase Give Text To Suggestion Channel!")
     }
 
-    let suggestchannel = guild.channels.find("name", "suggestion")
-    if (!suggestchannel) {
+    let channel = guild.channels.find('name', 'suggestion');
+    if (!channel) {
         return message.channel.send("This Server No Use suggestion Channel!")
     }
 
@@ -16,7 +16,7 @@ exports.run = (bot, message, args) => {
     .addField("=>", `${suggestmessage}`)
     .setFooter(`Suggestion By ${message.author.tag}`)
     .setTimestamp()
-    suggestchannel.send({embed});
+    channel.send({embed});
 
 
     message.channel.send(`<@${message.author.id}> Your Suggestion Has Ben Set!`)
