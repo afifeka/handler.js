@@ -12,8 +12,7 @@ exports.run = (bot, message, args) => {
     }
 
     let embed = new Discord.RichEmbed()
-    .setTitle("**SUGGESTION**")
-    .addField("=>", `${suggestmessage}`)
+    .setTitle(`**SUGGESTION** \n ${suggestmessage}`)
     .setFooter(`Suggestion By ${message.author.tag}`)
     .setTimestamp()
     channel.send({embed});
