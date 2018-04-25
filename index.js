@@ -122,9 +122,7 @@ bot.on("ready", async () => {
 
     }; setInterval(randomStatus, 10000)
     
-    bot.user.setUsername("CleanMaster");
-
-    bot.user.setStatus("idle")
+    bot.user.setUsername("Tyrant");
 });
 
 bot.login(process.env.BOT_TOKEN);
