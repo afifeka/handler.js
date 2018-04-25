@@ -6,7 +6,7 @@ exports.run = (bot, message, args) => {
         return message.reply("Plase Give Text To Suggestion Channel!")
     }
 
-    let channel = guild.channels.find('name', 'suggestion');
+    let channel = message.guild.channels.find('name', 'suggestion');
     if (!channel) {
         return message.channel.send("This Server No Use suggestion Channel!")
     }
