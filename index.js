@@ -116,7 +116,7 @@ bot.on("ready", async () => {
     console.log(`${bot.user.tag} is ready!`);
 
     function randomStatus() {
-        let status = [`Add Warned Commands!`, `]support`, `]help`,`Add Costum Autorole!`, `On ${bot.guilds.size} Servers!`]
+        let status = [`Add Warned Commands!`, `]support`, `]help`,`Added Suggestion Cmds!`, `On ${bot.guilds.size} Servers!`]
         let rstatus = Math.floor(Math.random() * status.length);
         bot.user.setActivity(status[rstatus], {type: 'STREAMING' , url: 'https://www.twitch.tv/afif_123'});
 
