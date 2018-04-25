@@ -15,7 +15,7 @@ exports.run = (bot, message, args) => {
     .addField("**SUGGESTION**", `${suggestmessage}`)
     .setFooter(`Suggestion By ${message.author.tag}`)
     .setTimestamp()
-    channel.send({embed});
+    channel.send({embed}).then(msg => {msg.react("✅").then(r =>msg.react("❎"))});
 
 
     message.channel.send(`<@${message.author.id}> Your Suggestion Has Ben Set!`)
