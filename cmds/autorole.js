@@ -2,7 +2,7 @@ const fs = require("fs");
 const Discord = require("discord.js");
 
 exports.run = async (bot, message, args) => {
-	if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("Anda Tidak Ada Permission Untuk Perintah Ini!");
+	if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("You dont have permission to have This command!");
 	let autorole = JSON.parse(fs.readFileSync("./autorole.json", "utf8"));
 	if (!args[0]) { // jika tidak ada argument makan autorole akan dimatikan
 		autorole[message.guild.id] = {
@@ -11,7 +11,7 @@ exports.run = async (bot, message, args) => {
 		fs.writeFile("./autorole.json", JSON.stringify(autorole), (err) => {
 			if (err) console.log(err);
 		});
-		message.channel.send(`**<@${message.author.id}>**, Autorole Sudah Dimatikan, Pakai **cm!autorole [nama role]**!`);
+		message.channel.send(`**<@${message.author.id}>**, Autorole has ban reset, usage **]autorole [nama role]**!`);
     }
 	if (args[0]) { // jika ada argumen maka akan dijadikan autorole
 		let roles = args.join(" ");
@@ -22,7 +22,7 @@ exports.run = async (bot, message, args) => {
 		fs.writeFile("./autorole.json", JSON.stringify(autorole), (err) => {
 			if (err) console.log(err)
 		});
-		message.channel.send(`**@<${message.author.id}>** Autorole Diset Ke **${role.name}**`);
+		message.channel.send(`**<@${message.author.id}>**, has set the new prefix **${role.name}**`);
 	}
 }
 
