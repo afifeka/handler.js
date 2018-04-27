@@ -122,7 +122,7 @@ bot.on("ready", async () => {
 
     }; setInterval(randomStatus, 10000)
     
-    bot.user.setUsername("Tyrant");
+    bot.user.setUsername("");
 });
 
 bot.login(process.env.BOT_TOKEN);
