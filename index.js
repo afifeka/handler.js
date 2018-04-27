@@ -29,8 +29,8 @@ bot.on("message", async message => {
     let cmd = args.shift().toLowerCase();
 
     if (message.content === `<@${bot.user.id}>`) {
-        message.channel.send(`Hello <@${message.author.id}>, CleanMaster With Prefix \`${prefix}\``);
-        message.react('👌');
+        message.channel.send(`Hello <@${message.author.id}>, Quack With Prefix \`${prefix}\``);
+        message.react('🆗');
     }
 	
     if (message.content === `${prefix}kick`) {
@@ -116,7 +116,7 @@ bot.on("ready", async () => {
     console.log(`${bot.user.tag} is ready!`);
 
     function randomStatus() {
-        let status = [`Add Warned Commands!`, `]support`, `]help`,`Added Suggestion Cmds!`, `On ${bot.guilds.size} Servers!`]
+        let status = [`Alpha v1.0!`, `type ]support for vote and invite`, `type ]help for help `,`New Bot's Discord!`, `On ${bot.guilds.size} Servers!`]
         let rstatus = Math.floor(Math.random() * status.length);
         bot.user.setActivity(status[rstatus], {type: 'STREAMING' , url: 'https://www.twitch.tv/afif_123'});
 
