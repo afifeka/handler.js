@@ -5,7 +5,7 @@ exports.run = (bot, message, args) => {
     .setTitle("SUPPORT!")
     .addField("Discord Official", "[**Click Here**](https://discord.gg/aDuF567)")
     .addField("Indonesian Developer Bot", "[**Click Here**](https://discord.gg/vgejeZB)")
-    .addField("Vote And Invite!", `[**Click Here**](https://discordbots.org/bot/429589443486416906)`)
+    .addField("Vote And Invite!", `[**Click Here**](https://discordbots.org/bot/439427224941232138)`)
     .setColor("#09fa2b")
     message.channel.send(embed)
 
