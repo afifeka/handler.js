@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args) => {
+exports.run = (bot, message, args) => {
   let helpembed = new Discord.RichEmbed()
   .setColor("#15f153")
   .setDescription("**Prefix : `]`**")
@@ -17,6 +17,6 @@ module.exports.run = async (bot, message, args) => {
 }
 
 
-module.exports.help = {
+exports.help = {
   name: "help"
 }
