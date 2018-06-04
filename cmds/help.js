@@ -10,7 +10,7 @@ exports.run = (bot, message, args) => {
   .addField(":100: | New!", "| `]spotify [User]` | `]suggest [suggestion]` |")
   .setFooter(`${bot.user.username} | Beta v0.2 | Discord.js`);
   message.author.send(helpembed);
-  return message.channel.send(`:mailbox_with_mail: Plase Check Your DM's <@${message.author.id}>!`) (args[0] == "2") {
+  return message.channel.send(`:mailbox_with_mail: Plase Check Your DM's <@${message.author.id}>!`)
     
   
 
