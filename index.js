@@ -10,7 +10,7 @@ const db = require('quick.db');
 const figlet = require('figlet');
 
 bot.on("message", async message => {
-	
+  if(message.author.bot) return;
 	
     if(message.channel.type === "dm") {
         var embed = new Discord.RichEmbed()
