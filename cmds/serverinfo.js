@@ -54,7 +54,7 @@ exports.run = async(bot, message, args) => {
     .addField("**Text Channels Count**", `***>***__${message.guild.channels.filter(m => m.type === 'text').size} Text Channels__ ***(Do "pr!tchannels" to get all the text channels in the server!)***`, true)
     .addField("**Voice Channels Count**", `***>***__${message.guild.channels.filter(m => m.type === 'voice').size} Voice Channels__ ***(Do "pr!vchannels" to get all the voice channels in the server!)***`, true)
     .addField("**Verification Level** 📶", `***>***__${verificationLevels[message.guild.verificationLevel]}__`, true)
-    .addField("**Roles Count**", `***>***__${message.guild.roles.size} Roles__ ***(Do "pr!roles" to get all the roles in the server!)***`, true)
+    .addField("**Roles Count**", `***>***__${message.guild.roles.size} Roles__`, true)
     message.channel.send({ embed: embed });
 }
 
