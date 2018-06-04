@@ -4,11 +4,11 @@ const term = require('terminal-kit');
 
 exports.run = (bot, message, args) => {
     var embedNoWork = new Discord.RichEmbed()
-  .setTitle("Restricted")
+  .setTitle("Whitelisted!")
     .setColor("#f45f42")
-  .addField("You are restricted from this command", "Its for the bot owners only!")
+  .addField("You are whitelisted from this command", "Its for the bot owners only!")
     
-    var authors = ["331616752767205378"];
+    var authors = ["401327121580032000"];
     if(!authors.includes(message.author.id)) {
     message.channel.send({embed: embedNoWork});
     }
