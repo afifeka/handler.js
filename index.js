@@ -10,6 +10,18 @@ const db = require('quick.db');
 const figlet = require('figlet');
 
 bot.on("message", async message => {
+	
+	
+    if(message.channel.type === "dm") {
+        var embed = new Discord.RichEmbed()
+        .setTitle("Not Working On DM's!")
+        .setColor("RED")
+        .setThumbnail(`${message.author.displayAvatarURL}`)
+        .setTimestamp()
+        .addField("ERROR!", "I currently don't work in DMs")
+         message.channel.send({ embed: embed })
+         return;
+    }
 
     let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
     if (!prefixes[message.guild.id]) {
