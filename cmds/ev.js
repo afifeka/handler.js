@@ -9,7 +9,7 @@ exports.run = (bot, message, args) => {
         if (typeof code !== 'string')
             code = require('util').inspect(code, { depth: 0 });
         let embed = new Discord.RichEmbed()
-        .setAuthor('Evaluate')
+        .setAuthor('Evaluate to CloudApp')
         .setColor("RANDOM")
         .addField('📥 Input', `\`\`\`js\n${codein}\`\`\``)
         .addField('📤 Output', `\`\`\`js\n${code}\n\`\`\``)
