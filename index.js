@@ -36,7 +36,7 @@ bot.on("message", async message => {
     let cmd = args.shift().toLowerCase();
 
     if (message.content === `<@${bot.user.id}>`) {
-        message.channel.send(`Hello <@${message.author.id}>, Quack With Prefix \`${prefix}\``);
+        message.channel.send(`Hello <@${message.author.id}>, Azure With Prefix \`${prefix}\``);
         message.react('🆗');
     }
     
