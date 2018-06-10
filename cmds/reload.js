@@ -18,7 +18,11 @@ exports.run = (bot, message, args) => {
   if (!args || args.length < 1) return message.channel.send("Must provide a command name to reload!");
 
     delete require.cache[require.resolve(`./${args[0]}.js`)];
-    message.channel.send("Succesfully reloaded " + `${args[0]}`)
+    const reloaded = new Discord.RichEmbed()
+    .setDescription(`:warning: | ***Reloading Command!*** \n Name: ***${args[0]}*** \n Reload On: ***${message.createdAt}*** \n Reload By: **<@${message.author.id}>**`)
+    .setColor("RANDOM")
+    .setFooter("Command Reloaded 99%")
+    message.channel.send(reloaded)
 
 let progressBar , progress = 0 ;
 
