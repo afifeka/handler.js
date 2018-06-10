@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 exports.run = (bot, message, args) => {
-    if(!args[1]) return message.reply("**Usage `]ask <Question>`**");
+    if(!args[0]) return message.reply("**Usage `]ask <Question>`**");
     let replies = ["Yes", "No", "I Don't Know", "What do you say?", "Very true", "You crazy?", "Whaaaat?"];
 
     let result = Math.floor((Math.random() * replies.length));
