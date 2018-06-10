@@ -6,14 +6,14 @@ exports.run = async (bot, message, args) => {
     if (!server) {
         var embed = new Discord.RichEmbed()
         .setColor("RED")
-        .setDescription("***Silakan Masukan Server IP!***")
+        .setDescription("****Input Server IP!***")
         message.channel.send({ embed: embed })
     }
     const url = await got(`https://api.mcsrvstat.us/1/${server}`, {json: true})
     if (url.body.ip === "") {
         var embed = new Discord.RichEmbed()
         .setColor("RED")
-        .setDescription("***IP Yang Anda Masukan Tidak Terdeteksi!***")
+        .setDescription("***This Server IP Is Not Defined!***")
         message.channel.send({ embed: embed })
     }
     var embed = new Discord.RichEmbed()
