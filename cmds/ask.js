@@ -5,7 +5,7 @@ exports.run = (bot, message, args) => {
     let replies = ["Yes", "No", "I Don't Know", "What do you say?", "Very true", "You crazy?", "Whaaaat?"];
 
     let result = Math.floor((Math.random() * replies.length));
-    let question = args.slice(1).join(" ");
+    let question = args.slice(0).join(" ");
 
     let ballembed = new Discord.RichEmbed()
     .setColor("#8d09f1")
