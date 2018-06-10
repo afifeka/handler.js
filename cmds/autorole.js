@@ -11,7 +11,7 @@ exports.run = async (bot, message, args) => {
 		fs.writeFile("./autorole.json", JSON.stringify(autorole), (err) => {
 			if (err) console.log(err);
 		});
-		message.channel.send(`**<@${message.author.id}>**, Autorole has ban reset, usage **]autorole [nama role]**!`);
+		message.reply("Autorole has ban reset, usage **]autorole [Role Name]**!");
     }
 	if (args[0]) { // jika ada argumen maka akan dijadikan autorole
 		let roles = args.join(" ");
@@ -22,7 +22,7 @@ exports.run = async (bot, message, args) => {
 		fs.writeFile("./autorole.json", JSON.stringify(autorole), (err) => {
 			if (err) console.log(err)
 		});
-		message.channel.send(`**<@${message.author.id}>**, has set the new prefix **${role.name}**`);
+		message.reply(`has set the new prefix **${role.name}**`);
 	}
 }
 
