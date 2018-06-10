@@ -1,18 +1,17 @@
 const Discord = require("discord.js");
 
 exports.run = (bot, message, args) => {
-  let helpembed = new Discord.RichEmbed()
-  .setColor("#15f153")
-  .setDescription("**Prefix : `]`**")
-  .addField(":lock: Moderators Command!", "| `]ban [False]` | `]!kick [False]` | `]tempmute [Player] [Time]` |\n| `]say [say]` | `]clear [Number]` | `]warn [user] [reason]` | `]addrole [Player] [Role Name]` | `]removerole help` | `]createrole [Role Name]` |")
-  .addField(":earth_asia: General Command", "| `]ping` | `]afk [Reason]` | `]help` | `]ask [question]` |\n| `]userinfo [User]` | `]stats` | `]weather [Location]` |\n| `]invite` | `]serverinfo` | `]ascii [text]` | `]mcstats [IP Server]` | `]mcuser [username]` ")
-  .addField(":frame_photo: Photo Command", "| `]dog` | `]cat` |")
-  .addField(":100: | New!", "| `]spotify [User]` | `]suggest [suggestion]` |")
-  .setFooter(`${bot.user.username} | Beta v0.2 | Discord.js`);
-  message.author.send(helpembed);
-  return message.channel.send(`:mailbox_with_mail: Plase Check Your DM's <@${message.author.id}>!`)
-    
-  
+const help = new Discord.RichEmbed()
+.setDescription("Prefix : =")
+.addField("**MODERATION**", " `ban`, `kick`, `warn`, `mute`, `addrole`, `removerole`, `clear`, `say`")
+.addField("**PUBLIC**", " `ping`, `ask`, `userinfo`, `stats`, `weather`, `support`, `suggest`, `ascii`, `mcstats`, `mcuser`")
+.addField("**IMAGE**", "`cat`, `dog`, `neko`")
+.addField("**MORE**", " `spotify`")
+.addField("**LINK**", "[Discord Server](https://discord.gg/xGp4ZAE), [Indonesian Official Development](https://discord.gg/XfNv2sZ)")
+.setColor("RANDOM")
+.setFooter(`${bot.user.username} | Discord.js`)
+
+message.channel.send(help);
 
 }
 
