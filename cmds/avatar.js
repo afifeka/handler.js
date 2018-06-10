@@ -6,7 +6,7 @@ exports.run = async (bot, message, args) => {
     const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setAuthor(member.user.tag)
-    .setDescription(`[Avatar URL Link](${member.user.displayAvatarURL})`)
+    .setDescription(`[Link](${member.user.displayAvatarURL})`)
     .setImage(member.user.displayAvatarURL);
 
     message.channel.send(embed);
