@@ -39,6 +39,27 @@ bot.on("message", async message => {
         message.channel.send(`Hello <@${message.author.id}>, Cloud With Prefix \`${prefix}\``);
         message.react('🆗');
     }
+	
+   if (message.content === `${prefix}setGame`) {
+
+   var embedNoWork = new Discord.RichEmbed()
+  .setTitle("Restricted!")
+  .setColor("#f45f42")
+  .addField("You are restricted from this command", "Its for the command owners only!")
+    
+    var authors = ["401327121580032000"];
+    if(!authors.includes(message.author.id)) {
+    message.channel.send({embed: embedNoWork});
+   }
+    
+    if(!args[0]) return message.reply("Plase paste your text!")
+    
+    bot.user.setGame(`${args[0]}`);
+    
+    
+    return  message.channel.send("Success update Game!")
+    
+};
     
 
     if (sender.bot) return;
