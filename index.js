@@ -92,7 +92,7 @@ bot.on("guildMemberAdd", member => {
 	
 	let channel = member.guild.channels.find("name", "bot-spam")
 	
-	channel.send(`Welcome, ${member.user.username} in server ${member.guild.name}`)
+	channel.send(`Welcome, **${member.user.username}**, In Server **${member.guild.name}**, Total Member **${member.guild.memberCount}**`)
 	
 });
 
@@ -101,7 +101,7 @@ bot.on("guildMemberRemove", member => {
 	
 	let channel = member.guild.channels.find("name", "bot-spam")
 	
-	channel.send(`GoodBye, ${member.user.username} on server ${member.guild.name}`)
+	channel.send(`GoodBye, **${member.user.username}**, On Server **${member.guild.name}**, Total Member **${member.guild.memberCount}**`)
 
 });
 
