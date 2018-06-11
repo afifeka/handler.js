@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Created", member.user.createdAt)
     .addField("Joined Server", member.joinedAt)
     .addField("Playing", game)
-    .addField("Status", status)
+    .addField("Status", status[user.presence.status])
     .addField("Nickname", message.member.displayName)
     message.channel.send(embed);
 
