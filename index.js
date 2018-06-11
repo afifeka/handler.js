@@ -87,6 +87,23 @@ bot.on("guildMemberAdd", member => {
 	member.addRole(role);
 });
 
+bot.on("guildMemberAdd", member => {
+	let guild = member.guild;
+	
+	let channel = member.guild.channels.find("name", "bot-spam")
+	
+	channel.send(`Welcome, ${member.user.username} in server ${member.guild.name}`)
+	
+});
+
+bot.on("guildMemberRemove", member => {
+	let guild = member.guild;
+	
+	let channel = member.guild.channels.find("name", "bot-spam")
+	
+	channel.send(`GoodBye, ${member.user.username} on server ${member.guild.name}`)
+
+});
 
 
 bot.on("ready", async () => {
