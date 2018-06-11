@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
+	    
+    let user = message.mentions.users.first() || message.author
 	
 	
 	    let game = user.presence.game && user.presence.game && user.presence.game.name
@@ -22,7 +24,8 @@ module.exports.run = async (bot, message, args) => {
     .addField("ID", member.id)
     .addField("Created", member.user.createdAt)
     .addField("Joined Server", member.joinedAt)
-    .addField("Status", `${status}`)
+    .addField("Playing", game)
+    .addField("Status", status)
     .addField("Nickname", message.member.displayName)
     message.channel.send(embed);
 
