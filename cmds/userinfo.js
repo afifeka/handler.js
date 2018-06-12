@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
   "invisible": "<:offline:449590947047669760> Offline"
  }
     const member = message.mentions.members.first() || message.guild.members.get(args[0]) || message.member;
-    let roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => `<@&${role.id}>`);
+    let roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => `${role.name}`);
 	
     let embed = new Discord.RichEmbed()
     .setDescription("**USER INFO**")
