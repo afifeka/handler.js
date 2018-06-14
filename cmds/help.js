@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 exports.run = (bot, message, args) => {
 const help = new Discord.RichEmbed()
-.setDescription("Prefix : =")
+.setDescription("Prefix : |")
 .addField("**MODERATION**", " `ban`, `kick`, `warn`, `mute`, `addrole`, `removerole`, `clear`, `say`")
 .addField("**PUBLIC**", " `ping`, `ask`, `userinfo`, `bigtext`, `stats`, `weather`, `support`, `suggest`, `ascii`, `mcstats`, `mcuser`")
 .addField("**MUSIC**", "`play`, `skip`, `stop`, `volume`, `pause`, `resume`, `np`, `queue`")
